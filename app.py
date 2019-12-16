@@ -40,6 +40,8 @@ def main():
                                                      'Capital gain':to_predict[0][5],
                                                      'Capital loss':to_predict[0][6],
                                                      'Hours per week':to_predict[0][7]}, prediction = prediction)
+    
+    return(flask.render_template('main.html'))
 
 
     
