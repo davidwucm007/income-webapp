@@ -1,0 +1,100 @@
+<!doctype html>
+<html> 
+    
+<style>
+form {
+    margin: auto;
+    width: 35%;
+}
+.result {
+    margin: auto;
+    width: 35%;
+    border: 1px solid #ccc;
+}
+</style>
+
+<head>
+    <title>Income Prediction Form</title>
+</head>
+    
+<body> 
+
+<form action="/" method="POST">
+    <fieldset>
+        <legend>Input values:</legend>
+    <label for="age">Age</label> 
+    <input type="text" id="age" name="age"> 
+    <br>
+    <br>
+    <label for="edu">Education</label> 
+    <select id="edu" name="edu">  
+      <option value="1">Preschool</option>
+      <option value="2">1st-4th</option> 
+      <option value="3">5th-6th</option> 
+      <option value="4">7th-8th</option> 
+      <option value="5">9th</option>
+      <option value="6">10th</option> 
+      <option value="7">11th</option> 
+      <option value="8">12th</option>
+      <option value="9">HS-grad</option>
+      <option value="10">Some-college</option>
+      <option value="11">Assoc-voc</option>
+      <option value="12">Assoc-acdm</option>  
+      <option value="13">Bachelors</option>
+      <option value="14">Masters</option>
+      <option value="15">Prof-school</option>
+      <option value="16">Doctorate</option>    
+    </select> 
+    <br> 
+    <br>
+    <label for="martial_stat">Marital Status</label> 
+    <select id="martial_stat" name="martial_stat"> 
+      <option value="0">Single</option> 
+      <option value="1">Married</option>  
+    </select> 
+    <br>
+    <br>
+    <label for="occup">Occupation</label> 
+    <select id="occup" name="occup"> 
+      <option value="1">Exec-managerial</option>    
+      <option value="1">Prof-specialty</option>
+      <option value="0">Others</option>
+    </select> 
+    <br>
+    <br>
+    <label for="gender">Gender</label> 
+    <select id="gender" name="gender"> 
+      <option value="0">Male</option> 
+      <option value="1">Female</option> 
+    </select> 
+    <br>
+    <br>
+    <label for="c_gain">Capital Gain </label> 
+    <input type="text" id="c_gain" name="c_gain"> 
+    <br>
+    <br>
+    <label for="c_loss">Capital Loss </label> 
+    <input type="text" id="c_loss" name="c_loss"> 
+    <br>
+    <br>
+    <label for="hours_per_week">Hours per Week </label> 
+    <input type="text" id="hours_per_week" name="hours_per_week"> 
+    <br>
+    <br>
+    <input type="submit" value="Submit">
+    </fieldset>
+</form> 
+<br>
+<div class="result" align="center">
+    {% if prediction %}
+
+        {% for variable, value in original_input.items() %}
+               <b>{{ variable }}</b> : {{ value }}
+        {% endfor %}
+               <br>
+        <br> Predicted income of the applicant:
+               <p style="font-size:50px">{{ prediction }}</p>
+    {% endif %}
+</div> 
+</body> 
+</html> 
